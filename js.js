@@ -116,6 +116,7 @@ var selectedRow = null
 
 function onFormSubmit(){
     // if (ValidityState()){
+        
     var formData = readFormData();
     if(selectedRow == null)
         insertNewRecord(formData);
@@ -153,38 +154,38 @@ function insertNewRecord(data) {
     cell3.innerHTML = data.pub;
 
     cell4 = newRow.insertCell(4);
-    cell5.innerHTML = data.language;
+    cell4.innerHTML = data.language;
 
-    cell6 = newRow.insertCell(5);
-    cell6.innerHTML = data.genre;
+    cell5 = newRow.insertCell(5);
+    cell5.innerHTML = data.genre;
 
-    cell7 = newRow.insertCell(6);
-    cell7.innerHTML =  `<a onClick="onEdit(this)">Edit</a>
-    <a onClick="onDelete(this)">Delete</a>`;
+    cell6 = newRow.insertCell(6);
+    cell6.innerHTML =  `<button onClick='onEdit(this)'>Edit</button>
+    <button onClick='onDelete(this)'>Delete</button>`;
     
 }
 //infooooosssssss
-function restForm() {
-    document.getElementById("title").value = "";
-    document.getElementById("author").value = "";
-    document.getElementById("price").value = "";
-    document.getElementById("pub").value = "";
-    document.getElementById("language").value = "";
-    document.getElementById("genre").value = "";
+// function restForm() {
+//     document.getElementById("title").value = "";
+//     document.getElementById("author").value = "";
+//     document.getElementById("price").value = "";
+//     document.getElementById("pub").value = "";
+//     document.getElementById("language").value = "";
+//     document.getElementById("genre").value = "";
 
-    selectedRow = null;
-}
+//     selectedRow = null;
+// }
 
 
 //when editing
 function onEdit(td) {
     selectedRow = td.parentElement.parentElement;
-    document.getElementById("title").value = selectedRow.cells[0].innerHTML;
-    document.getElementById("author").value = selectedRow.cells[1].innerHTML;
-    document.getElementById("price").value = selectedRow.cells[2].innerHTML;
-    document.getElementById("pub").value = selectedRow.cells[3].innerHTML;
-    document.getElementById("language").value = selectedRow.cells[4].innerHTML;
-    document.getElementById("genre").value = selectedRow.cells[5].innerHTML;
+    document.getElementById('title').value = selectedRow.cells[0].innerHTML;
+    document.getElementById('author').value = selectedRow.cells[1].innerHTML;
+    document.getElementById('price').value = selectedRow.cells[2].innerHTML;
+    document.getElementById('pub').value = selectedRow.cells[3].innerHTML;
+    document.getElementById('language').value = selectedRow.cells[4].innerHTML;
+    document.getElementById('genre').value = selectedRow.cells[5].innerHTML;
 }
 
 
@@ -201,52 +202,12 @@ function updateRecord(formData) {
 
 function onDelete(td) {
     if(confirm('do u really want to delete this ?')){
-        row = parentElement.parentElement;
+        row = td.parentElement.parentElement;
         document.getElementById("table").deleteRow(row.rowIndex);
-        resetForm();
+        
     }
+    resetForm();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

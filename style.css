@@ -175,22 +175,28 @@ th{
     display: grid;
 
 } */
-#tro{
-    display: grid;
+ #tro{
+    /* display: grid; 
     font-size: 20px;
-    grid-template-columns:  auto auto auto auto auto auto auto;
+    text-align: center;
+    /* grid-template-columns:  auto auto auto auto auto auto auto; */
     /* background-color: #4576da; */
     border-radius: 45px 45px 0 0; 
-    
+     
 } 
 table{
     display: grid;
-    align-self: center;
+    /* align-self: center;  */
     width: 80%;
     justify-self: center;
     /* border: 1px solid #000; */
     border-radius: 45px  45px 0px   0px;
     height: 600px;
+}
+td{
+    text-align: center;
+    font-size: 20px;
+    
 }
 
 #error1{
