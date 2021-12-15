@@ -75,6 +75,7 @@ input[type=text]{
     height: 54px;
     width: 500px;
     box-shadow: 8px 8px #4576da;
+    font-size: 20px;
     
 }
 input[type=number]{
@@ -84,7 +85,7 @@ input[type=number]{
     height: 54px;
     width: 500px;
     box-shadow: 8px 8px #d6a5b5;
-    font-size: 16px
+    font-size: 20px
 }
 #author{
     border: 3px solid rgb(0, 0, 0);
@@ -100,7 +101,7 @@ input[type=date]{
     height: 54px;
     width: 500px;
     box-shadow: 8px 8px #4576da;
-    font-size: 16px
+    font-size: 20px
 }
 #language{
     border: 3px solid rgb(0, 0, 0);
@@ -108,7 +109,7 @@ input[type=date]{
     height: 54px;
     width: 500px;
     box-shadow: 8px 8px #4576da;
-    font-size: 16px
+    font-size: 20px
 
 }
 
@@ -168,6 +169,7 @@ th{
     border: 1px solid ;
     border-radius: 45px  45px 0px   0px;
     background-color: #4576da;
+    width: 140px;
     
 }
 /* .item{
@@ -192,6 +194,9 @@ table{
     /* border: 1px solid #000; */
     border-radius: 45px  45px 0px   0px;
     height: 600px;
+    justify-items: center;
+    /* border-collapse: separate;
+    border-spacing:  50px; */
 }
 td{
     text-align: center;
@@ -228,4 +233,12 @@ td{
     color: red;
     font-size: 16px;
     font-weight: normal;
+}
+
+button{
+    background-color: #d6a5b5;
+    border-radius: 100px;
+    height: 40px;
+    width: 60px;
+    font-weight: bold;
 }
