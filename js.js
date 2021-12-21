@@ -7,8 +7,8 @@ const author = document.getElementById('author');
 const price = document.getElementById('price');
 const pub = document.getElementById('pub');
 const language = document.getElementById('language');
-const genre = document.getElementById('genre');
-
+//const genre = document.getElementById('genre');
+const genre = document.querySelectorAll('input[name="fav_language"]');
 
 const errorElementTitle = document.getElementById('error1')
 const errorElementAuthor = document.getElementById('error2')
@@ -113,17 +113,18 @@ form.addEventListener('submit', (e) => {
 //the taaable
 var selectedRow = null
 
-
 function onFormSubmit(){
-    // if (ValidityState()){
-        
+    // if (ValidityState()){    
     var formData = readFormData();
     if(selectedRow == null)
         insertNewRecord(formData);
-        else 
-            updateRecord(formData);
+    else 
+    {
+        updateRecord(formData);
+        selectedRow = null;
+    }
         // insertNewRecord(formData);
-        resetForm();
+    resetForm();
     //  }
 }
 
@@ -134,15 +135,15 @@ function readFormData(){
     formData["price"] = document.getElementById("price").value;
     formData["pub"] = document.getElementById("pub").value;
     formData["language"] = document.getElementById("language").value;
-    formData["genre"] = document.getElementById("genre").value;
+    formData["genre"] = document.querySelector('input[name="fav_language"]:checked').value;
     return formData;
 }
 
 function insertNewRecord(data) {
     var table = document.getElementById("table").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
-    cell1 = newRow.insertCell(0);
-    cell1.innerHTML = data.title;
+    cell0 = newRow.insertCell(0);
+    cell0.innerHTML = data.title;
 
     cell1 = newRow.insertCell(1);
     cell1.innerHTML = data.author;
@@ -208,6 +209,11 @@ function onDelete(td) {
     }
     resetForm();
 }
+
+
+
+
+
 
 
 
