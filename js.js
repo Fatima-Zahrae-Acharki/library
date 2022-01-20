@@ -16,7 +16,7 @@ const errorElementPrice = document.getElementById('error3')
 const errorElementPub = document.getElementById('error4')
 const errorElementLanguage = document.getElementById('error5')
 const errorElementGenre = document.getElementById('error6')
-
+var noValid = 0
 
 // title    handling of title
 form.addEventListener('submit', (e) => { //check the entered data (validtion)
@@ -30,6 +30,7 @@ form.addEventListener('submit', (e) => { //check the entered data (validtion)
     if(message.length > 0 ) {
         e.preventDefault()  //to stop browser from executing a function 
         errorElementTitle.innerText = message.join(',')  //skip and jump to another error
+        noValid++
     }
 })
 // author
@@ -45,6 +46,7 @@ form.addEventListener('submit', (e) => {
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementAuthor.innerText = message.join(',')
+        noValid++
     }
 })
 // price
@@ -57,6 +59,7 @@ form.addEventListener('submit', (e) => {
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementPrice.innerText = message.join(',')
+        noValid++
     }
 })
 // publication date
@@ -69,6 +72,7 @@ form.addEventListener('submit', (e) => {
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementPub.innerText = message.join(',')
+        noValid++
     }
 })
 // language
@@ -81,6 +85,7 @@ form.addEventListener('submit', (e) => {
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementLanguage.innerText = message.join(',')
+        noValid++
     }
 })
 
@@ -104,6 +109,10 @@ form.addEventListener('submit', (e) => {
         errorElementGenre.innerHTML="Good"
         errorElementGenre.style.color ="#d6a5b5";
      }
+     if(noValid==0)
+        return true
+    
+    return false;
 })
 
 
@@ -201,9 +210,9 @@ function updateRecord(formData) {
 
 //when u want to delete ur infos
 
-function onDelete(td) {
+function onDelete(btnDelete) {
     if(confirm('do u really want to delete this ?')){
-        row = td.parentElement.parentElement;
+        row = btnDelete.parentElement.parentElement;
         document.getElementById("table").deleteRow(row.rowIndex);
         
     }
