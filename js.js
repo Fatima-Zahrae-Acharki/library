@@ -17,20 +17,24 @@ const errorElementPub = document.getElementById('error4')
 const errorElementLanguage = document.getElementById('error5')
 const errorElementGenre = document.getElementById('error6')
 var noValid = 0
+var valid = true
 
 // title    handling of title
 form.addEventListener('submit', (e) => { //check the entered data (validtion)
     let message = []   //stocks the errors
     if(title.value === '' ) {  //if user let title blank an error will appear 
         message.push('you have to enter a title*')
+        valid = false
     }
     if(title.value.length >= 30 ) {
         message.push('title must be less than 30 character*')
+        valid = false
     }
     if(message.length > 0 ) {
         e.preventDefault()  //to stop browser from executing a function 
         errorElementTitle.innerText = message.join(',')  //skip and jump to another error
         noValid++
+        valid = false
     }
 })
 // author
@@ -39,14 +43,17 @@ form.addEventListener('submit', (e) => {
     let message = []
     if(author.value === '' ) {
         message.push('you have to enter a name*')
+        valid = false
     }
     if(author.value.length >= 30 ) {
         message.push('name must be less than 30 character*')
+        valid = false
     }
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementAuthor.innerText = message.join(',')
         noValid++
+        valid = false
     }
 })
 // price
@@ -54,12 +61,14 @@ form.addEventListener('submit', (e) => {
     let message = []
     if(price.value === '' ) {
         message.push('please enter the price*')
+        valid = false
     }
 
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementPrice.innerText = message.join(',')
         noValid++
+        valid = false
     }
 })
 // publication date
@@ -67,12 +76,14 @@ form.addEventListener('submit', (e) => {
     let message = []
     if(pub.value === '' ) {
         message.push('you have to enter a date*')
+        valid = false
     }
     
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementPub.innerText = message.join(',')
         noValid++
+        valid = false
     }
 })
 // language
@@ -80,13 +91,16 @@ form.addEventListener('submit', (e) => {
     let message = []
     if(language.value === '' ) {
         message.push('you have to chose a language*')
+        valid = false
     }
    
     if(message.length > 0 ) {
         e.preventDefault()
         errorElementLanguage.innerText = message.join(',')
         noValid++
+        valid = false
     }
+    
 })
 
 
@@ -102,18 +116,19 @@ form.addEventListener('submit', (e) => {
     let message = []
     if (!(hhhhh[0].checked || hhhhh[1].checked || hhhhh[2].checked || hhhhh[3].checked || hhhhh[4].checked || hhhhh[5].checked || hhhhh[6].checked || hhhhh[7].checked || hhhhh[8].checked )) {
         errorElementGenre.innerHTML = 'you have to chose a category*'
-        
+        valid = false
     }
    
     else{
         errorElementGenre.innerHTML="Good"
         errorElementGenre.style.color ="#d6a5b5";
      }
-     if(noValid==0)
+    if(noValid==0)
         return true
     
     return false;
 })
+
 
 
 
@@ -147,7 +162,7 @@ function readFormData(){
     formData["genre"] = document.querySelector('input[name="fav_language"]:checked').value;
     return formData;
 }
-
+if(valid==true){
 function insertNewRecord(data) {
     var table = document.getElementById("table").getElementsByTagName('tbody')[0];
     var newRow = table.insertRow(table.length);
@@ -173,6 +188,7 @@ function insertNewRecord(data) {
     cell6.innerHTML =  `<button onClick='onEdit(this)'>Edit</button>
     <button onClick='onDelete(this)'>Delete</button>`;
     
+}
 }
 //infooooosssssss
 // function restForm() {
